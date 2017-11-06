@@ -11,7 +11,7 @@ func DefaultHandler(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
 	age, _ := strconv.Atoi(query.Get("age"))
 
-	p := &model.Person{query.Get("name"), age}
+	p := &model.Person{Name: query.Get("name"), Age: age}
 
 	per, err := json.Marshal(p)
 	if err != nil {
